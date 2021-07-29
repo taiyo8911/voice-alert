@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>ボイスアラート</title>
+
+    <script>
+        function sound() {
+            // 対象となるID名
+            var id = 'sound-file';
+
+            // 初回以外だったら音声ファイルを巻き戻す
+            if (typeof (document.getElementById(id).currentTime) != 'undefined') {
+                document.getElementById(id).currentTime = 0;
+            }
+
+            // [ID:sound-file]の音声ファイルを再生[play()]する
+            document.getElementById(id).play();
+        }
+    </script>
+</head>
+
+<body>
+
+    <div class="wrapper">
+        <div class="container">
+            <h1>規制ボイスアラート</h1>
+
+            <div class="btn">
+                <button id="kisei" onclick="sound()">音を鳴らす</button>
+                <audio src="kisei.wav" type="audio/wav" id="sound-file" preload="auto" loop="true"></audio>
+
+                <button id="stop" onclick="location.reload();">音を止める</button>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
